@@ -24,8 +24,7 @@ from playwright_stealth import Stealth   # ✅ REQUIRED
 # =========================
 # CONFIG
 # =========================
-HEADLESS = False
-
+HEADLESS = True
 FACEBOOK_COOKIES_FILE = "cookies.json.encrypted"
 POSTED_CONTENT_FILE = "posted_content.json"
 TEMP_DIR = Path("temp")
