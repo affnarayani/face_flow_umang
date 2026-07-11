@@ -1,14 +1,14 @@
 {
-    "title": "Civil contempt proceedings - how to enforce a court order",
-    "p1": "Winning a court case doesn't always mean the problem is over. The surprising part? A court order can still be ignored, and that doesn't automatically lead to someone being arrested or punished.",
-    "p2": "Many people assume the court will enforce every order on its own. In reality, the person who benefits from the order often has to take the next step. Civil contempt proceedings are one way to ask the court to respond when someone deliberately refuses to comply with an order they know about. The focus is not revenge. It is encouraging compliance with the court's decision.",
-    "p3": "A key point many people miss is that not every failure to follow an order amounts to contempt. The court usually looks at whether the person knew about the order, had the ability to comply, and willfully chose not to. That distinction matters because genuine inability is different from deliberate refusal. If you believe an order is being ignored, keep clear records of the order, any communication, and the non-compliance before seeking legal advice on the appropriate enforcement process.",
-    "conclusion": "Before today, did you know that proving a person could comply can be just as important as proving they didn't? What questions do you have about enforcing a court order?",
+    "title": "Smart contracts on blockchain - their legal enforceability in India",
+    "p1": "A contract that executes itself sounds like the future. But can a smart contract actually protect your rights in an Indian court?\n\nMany people assume blockchain code automatically becomes a legally binding agreement.",
+    "p2": "The surprising truth: a smart contract is not the same as a traditional contract. It is simply computer code that performs actions automatically when conditions are met. Its legal value depends on whether it satisfies existing contract laws, such as offer, acceptance, consent, and lawful consideration.",
+    "p3": "In India, electronic agreements can be legally recognized, but the code alone may not answer every legal question. A smart contract used for business should still clearly define the parties, obligations, and dispute resolution process.\n\nThe real power comes from combining blockchain automation with proper legal drafting. This can make transactions faster while keeping legal protection in place.",
+    "conclusion": "Do you think India should create specific laws for smart contracts, or are existing contract laws enough?",
     "keywords": [
-        "CivilContempt",
-        "CourtOrders",
-        "LegalEducation",
-        "DisputeResolution",
-        "KnowYourRights"
+        "SmartContracts",
+        "BlockchainIndia",
+        "LegalTech",
+        "IndianLaw",
+        "Web3"
     ]
 }
