@@ -1,10 +1,9 @@
 import os
+import sys
 import json
 import time
 import base64
 import random
-import shutil
-import requests
 from pathlib import Path
 from typing import List, Dict, Any
 
@@ -16,22 +15,20 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.exceptions import InvalidTag
 
 from playwright.sync_api import sync_playwright
-from huggingface_hub import InferenceClient
-
-from playwright_stealth import Stealth   # ✅ REQUIRED
+from playwright_stealth import Stealth
 
 
 # =========================
 # CONFIG
 # =========================
 HEADLESS = True
+
 FACEBOOK_COOKIES_FILE = "cookies.json.encrypted"
-POSTED_CONTENT_FILE = "posted_content.json"
-TEMP_DIR = Path("temp")
-TEMP_DIR.mkdir(exist_ok=True)
+TOPICS_FILE = Path("umang_fb_topics.json")
+POST_FILE = Path("post.json")
+IMAGE_PATH = Path("image/image.png")
 
 PBKDF2_ITERATIONS = 200_000
-MAX_RETRIES = 3
 
 
 # =========================
@@ -39,13 +36,9 @@ MAX_RETRIES = 3
 # =========================
 load_dotenv()
 DECRYPT_KEY = os.getenv("DECRYPT_KEY")
-HF_TOKEN = os.getenv("HF_TOKEN")
 
 if not DECRYPT_KEY:
     raise RuntimeError("DECRYPT_KEY missing")
-
-if not HF_TOKEN:
-    raise RuntimeError("HF_TOKEN missing")
 
 
 # =========================
@@ -88,112 +81,138 @@ def load_cookies(file_path: Path) -> List[Dict[str, Any]]:
     return cookies
 
 
+# ==================================
+# STATE VALIDATION & STATUS UPDATER
+# ==================================
+def can_run_fb_script() -> tuple:
+    print(f"[STEP] Checking status in {TOPICS_FILE.name}...", flush=True)
+    
+    if not TOPICS_FILE.exists():
+        print(f"[INFO] '{TOPICS_FILE.name}' nahi mili. Execution stopped.", flush=True)
+        return False, None
+    
+    try:
+        with TOPICS_FILE.open("r", encoding="utf-8") as f:
+            topics = json.load(f)
+    except Exception as e:
+        print(f"[ERROR] Topics file read karne me dikkat: {e}.", flush=True)
+        return False, None
+
+    if not topics or not isinstance(topics, list):
+        print("[INFO] Topics list khali hai.", flush=True)
+        return False, None
+
+    # Sabse aakhri item nikalna jo process ho raha tha
+    last_processed_item = None
+    for item in topics:
+        if isinstance(item, dict) and "image_generated" in item:
+            last_processed_item = item
+
+    if last_processed_item is None:
+        print("[INFO] Koi processed entry nahi mili.", flush=True)
+        return False, None
+
+    ig = last_processed_item.get("image_generated") is True
+    posted = last_processed_item.get("posted") is True
+
+    # Run strictly when image_generated=True and posted=False
+    if ig and not posted:
+        current_topic = last_processed_item.get("topic")
+        print(f"[OK] Last post '{current_topic}' validation clear! Running Facebook Posting.", flush=True)
+        return True, current_topic
+    else:
+        print(f"[INFO] Script halted! Condition match nahi hui: image_generated={ig}, posted={posted}.", flush=True)
+        return False, None
+
+
+def update_posted_status_in_json(topic_text: str):
+    print(f"[STEP] Updating posted status in {TOPICS_FILE.name}...", flush=True)
+    if not TOPICS_FILE.exists():
+        return
+        
+    with TOPICS_FILE.open("r", encoding="utf-8") as f:
+        topics = json.load(f)
+        
+    for item in topics:
+        if item.get("topic") == topic_text:
+            item["posted"] = True
+            break
+            
+    with TOPICS_FILE.open("w", encoding="utf-8") as f:
+        json.dump(topics, f, indent=4, ensure_ascii=False)
+    print(f"[OK] Status successfully updated (posted=True) in {TOPICS_FILE.name}", flush=True)
+
+
+# ==================================
+# TEXT BUILDER FROM JSON
+# ==================================
+def build_post_text() -> str:
+    print(f"[STEP] Reading post content from {POST_FILE.name}...", flush=True)
+    if not POST_FILE.exists():
+        raise FileNotFoundError(f"❌ '{POST_FILE.name}' file nahi mili!")
+        
+    with POST_FILE.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+        
+    title = data.get("title", "").strip()
+    p1 = data.get("p1", "").strip()
+    p2 = data.get("p2", "").strip()
+    p3 = data.get("p3", "").strip()
+    conclusion = data.get("conclusion", "").strip()
+    keywords = data.get("keywords", [])
+    
+    # Text formatting with double newlines for spacing
+    content_parts = []
+    if title:
+        content_parts.append(title)
+    if p1:
+        content_parts.append(p1)
+    if p2:
+        content_parts.append(p2)
+    if p3:
+        content_parts.append(p3)
+    if conclusion:
+        content_parts.append(conclusion)
+        
+    full_text = "\n\n".join(content_parts)
+    
+    # Convert keywords list into hashtags mapping
+    if keywords:
+        hashtags = " ".join([f"#{kw.strip()}" for kw in keywords])
+        full_text += f"\n\n{hashtags}"
+        
+    return full_text
+
+
 # =========================
-# AI
-# =========================
-client = InferenceClient(
-    model="meta-llama/Meta-Llama-3-8B-Instruct",
-    token=HF_TOKEN
-)
-
-
-def sanitize_ai_content(text):
-    return text.replace("**", "").replace("*", "").strip()
-
-
-def rewrite_with_hf(text):
-    print("[STEP] Rewriting content with HF...", flush=True)
-
-    prompt = (
-        f"Rewrite the legal content below into a high-performing LinkedIn post (~120 words).\n"
-        f"Rules:\n"
-        f"- Exactly 2 paragraphs\n"
-        f"- Paragraph 1: Strong hook\n"
-        f"- Paragraph 2: Insightful explanation\n"
-        f"- End with a thought-provoking question\n"
-        f"- Use clear, professional, SEO-friendly language\n"
-        f"- Do NOT use symbols like * or **\n"
-        f"- IMPORTANT: Add 5–10 relevant hashtags on a new line at the end\n"
-        f"- No extra commentary or headings\n"
-        f"Content: {text}"
-    )
-
-    for _ in range(MAX_RETRIES):
-        try:
-            res = client.chat.completions.create(
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=220,
-                temperature=0.7,
-            )
-
-            result = sanitize_ai_content(res.choices[0].message.content)
-            return result
-
-        except Exception as e:
-            print("[AI ERROR]", e, flush=True)
-            time.sleep(5)
-
-    return sanitize_ai_content(text)
-
-
-# =========================
-# CONTENT
-# =========================
-def load_json(url):
-    print("[STEP] Fetching content...", flush=True)
-    return requests.get(url).json()
-
-
-def get_new_content():
-    url = "https://raw.githubusercontent.com/affnarayani/ninetynine_credits_legal_advice_app_content/main/content.json"
-    data = load_json(url)
-
-    posted = []
-    if Path(POSTED_CONTENT_FILE).exists():
-        posted = json.load(open(POSTED_CONTENT_FILE, "r", encoding="utf-8"))
-
-    posted_titles = {p["title"] for p in posted}
-
-    for item in data:
-        if item["title"] not in posted_titles:
-            return item
-
-    return None
-
-
-def download_image(url, name):
-    path = TEMP_DIR / name
-    r = requests.get(url, stream=True)
-
-    with open(path, "wb") as f:
-        shutil.copyfileobj(r.raw, f)
-
-    return path
-
-
-# =========================
-# FACEBOOK BOT (STEALTH)
+# MAIN EXECUTION
 # =========================
 def run():
-    print("[START] Bot started", flush=True)
+    print("[START] Facebook Bot started", flush=True)
 
+    # 1. Pre-condition status check
+    can_run, active_topic = can_run_fb_script()
+    if not can_run:
+        print("[INFO] Pre-conditions meet nahi hui. Exiting script gracefully...", flush=True)
+        sys.exit(0)
+
+    # 2. Check if image file exists before triggering browser
+    if not IMAGE_PATH.exists():
+        print(f"[ERROR] Image path '{IMAGE_PATH}' par koi file nahi mili. Exiting...", flush=True)
+        sys.exit(1)
+
+    # 3. Load cookies and format post structure
     cookies = load_cookies(Path(FACEBOOK_COOKIES_FILE))
-    content = get_new_content()
-
-    if not content:
-        print("[INFO] No new content")
-        return
-
-    rewritten = rewrite_with_hf(content["description"])
-    image_path = download_image(content["image"], "post.jpg")
+    post_caption = build_post_text()
 
     # =========================
-    # STEALTH SETUP (YOUR CODE)
+    # STEALTH PLAYWRIGHT SETUP
     # =========================
     stealth = Stealth()
     pw_cm = stealth.use_sync(sync_playwright())
     pw = pw_cm.__enter__()
 
+    browser = None
     try:
         browser = pw.chromium.launch(
             headless=HEADLESS,
@@ -211,78 +230,87 @@ def run():
         context.add_cookies(cookies)
         page = context.new_page()
 
-        print("[STEP] Opening Facebook...", flush=True)
-        page.goto("https://www.facebook.com/AdvocateUmangPatna")
-        time.sleep(random.randint(15, 30))
+        print("[STEP] Opening Facebook Profile/Page...", flush=True)
+        page.goto("https://www.facebook.com/AdvocateUmangPatna/")
+        time.sleep(random.randint(4, 8))
 
+        # Profile switch handle if modal appears
         try:
             if page.get_by_role("button", name="Switch Now").is_visible():
                 page.get_by_role("button", name="Switch Now").click()
+                time.sleep(random.randint(5, 10))
         except:
             pass
 
-        print("[STEP] Opening post box...", flush=True)
-        page.get_by_role("button", name="What\'s on your mind?").click()
-        time.sleep(random.randint(15, 30))
-        page.get_by_role("paragraph").click()
-        page.keyboard.type(rewritten + " ")
+        print("[STEP] Opening post creation dialog...", flush=True)
+        page.get_by_role("button", name="What's on your mind?").click()
+        time.sleep(random.randint(6, 12))
+        
+        # ========================================================
+        # NEW: AI LABELING AUTOMATION FLOW (BEFORE TYPING)
+        # ========================================================
+        print("[STEP] Locating 'AI label off' button...", flush=True)
+        page.get_by_role("button", name="AI label off").click()
+        time.sleep(random.randint(3, 6))
 
-        print("[STEP] Uploading image...", flush=True)
+        print("[STEP] Toggling 'Add AI label' switch...", flush=True)
+        page.get_by_role("switch", name="Add AI label").click()
+        time.sleep(random.randint(3, 6))
+
+        print("[STEP] Confirming with 'Got it' button...", flush=True)
+        page.get_by_role("button", name="Got it").click()
+        time.sleep(random.randint(3, 6))
+        # ========================================================
+
+        print("[STEP] Locating textarea and typing post...", flush=True)
+        page.get_by_role("paragraph").click()
+        page.keyboard.type(post_caption + " ")
+        time.sleep(random.randint(3, 6))
+
+        print("[STEP] Uploading static local image...", flush=True)
         with page.expect_file_chooser() as fc:
             page.get_by_role("button", name="Photo/video", exact=True).click()
 
-        fc.value.set_files(str(image_path))
-        time.sleep(random.randint(15, 30))
+        fc.value.set_files(str(IMAGE_PATH))
+        time.sleep(random.randint(6, 12))
+        
         page.get_by_role("button", name="Next").click()
         print("[STEP] Clicking Next...", flush=True)
-        time.sleep(random.randint(15, 30))
+        time.sleep(random.randint(6, 12))
+        
         page.get_by_role("button", name="Post", exact=True).click()
         print("[STEP] Clicking Post...", flush=True)
-        time.sleep(random.randint(15, 30))
+        time.sleep(random.randint(8, 15))
 
+        # Dynamic dismissal for optional integrated WhatsApp hooks
         btn = page.get_by_role("button", name="Not now")
         if btn.count(): 
             btn.first.click()
-            print("[STEP] Clicking No WhatsApp...", flush=True)
-            time.sleep(random.randint(15, 30))
+            print("[STEP] Dismissed WhatsApp link layout prompt...", flush=True)
+            time.sleep(random.randint(4, 8))
 
-        print("✅ Posted successfully!", flush=True)
+        print("✅ Posted successfully to Facebook Feed!", flush=True)
 
-        # save
-        posted = []
-        if Path(POSTED_CONTENT_FILE).exists():
-            posted = json.load(open(POSTED_CONTENT_FILE, "r", encoding="utf-8"))
-
-        posted.insert(0, content)
-
-        with open(POSTED_CONTENT_FILE, "w", encoding="utf-8") as f:
-            json.dump(posted, f, indent=2)
-
-        time.sleep(random.randint(15, 30))
+        # 4. Success state management trigger
+        update_posted_status_in_json(active_topic)
+        time.sleep(random.randint(5, 10))
 
     except Exception as e:
-        print("[ERROR]", e, flush=True)
+        print("[ERROR during execution]", e, flush=True)
+        sys.exit(1)
 
     finally:
-        try:
-            browser.close()
-        except:
-            pass
-
-        try:
-            if TEMP_DIR.exists():
-                shutil.rmtree(TEMP_DIR)
-            TEMP_DIR.mkdir(exist_ok=True)
-            print("[CLEANUP] Temp cleared", flush=True)
-        except Exception as e:
-            print("[CLEANUP ERROR]", e, flush=True)
-
+        if browser:
+            try:
+                browser.close()
+            except:
+                pass
         try:
             pw_cm.__exit__(None, None, None)
         except:
             pass
 
-        print("[DONE] Bot finished", flush=True)
+        print("[DONE] Bot session concluded safely.", flush=True)
 
 
 if __name__ == "__main__":

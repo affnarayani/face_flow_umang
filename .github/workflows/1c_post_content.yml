@@ -1,0 +1,104 @@
+name: 1C. Post Facebook
+
+on:
+  workflow_dispatch: # GitHub UI se manual run karne ke liye button active rahega
+  workflow_run:
+    workflows: ["1B. Generate Image"] # Jab pehla workflow khatam hoga, yeh automatically trigger ho jayega
+    types:
+      - completed
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      # =========================
+      # 1. PULL CODE
+      # =========================
+      - name: Checkout repo
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # =========================
+      # 2. SETUP PYTHON
+      # =========================
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Pull Latest Changes (Maintain Persistence)
+        run: |
+          git pull origin ${GITHUB_REF_NAME} --rebase
+
+      - name: Install and Start Cloudflare WARP (TUN Global Mode)
+        run: |
+          # 1. Repository aur GPG Key set karein
+          curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+          
+          # 2. Install
+          sudo apt-get update && sudo apt-get install -y cloudflare-warp
+          
+          # 3. Start Service
+          sudo systemctl start warp-svc
+          sleep 2
+          
+          # 4. Register (New CLI Syntax compatible)
+          warp-cli --accept-tos registration new || warp-cli registration new
+          
+          # 5. STRICT FIX: Mode ko PROXY se badal kar TUN (Standard VPN) karein
+          # Yeh pure GitHub runner ka internet traffic WARP se routing kar dega
+          warp-cli --accept-tos mode warp || warp-cli mode warp
+          
+          # 6. Connect
+          warp-cli --accept-tos connect || warp-cli connect
+          sleep 5
+          
+          # 7. Verify ki pure system ka IP change hua ya nahi
+          curl https://cloudflare.com/cdn-cgi/trace
+
+      # =========================
+      # 3. INSTALL DEPENDENCIES
+      # =========================
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Playwright
+        run: |
+          python -m playwright install chromium
+
+      # =========================
+      # 4. RUN BOT
+      # =========================
+      - name: Run bot
+        env:
+          DECRYPT_KEY: ${{ secrets.DECRYPT_KEY }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: python post_content.py
+
+      # =========================
+      # 5. COMMIT & PUSH CHANGES
+      # =========================
+      - name: Commit & Push updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add umang_fb_topics.json
+
+          git diff --cached --quiet || git commit -m "Update posted content [auto]"
+          git pull origin ${GITHUB_REF_NAME} --rebase
+          git push origin ${GITHUB_REF_NAME}
