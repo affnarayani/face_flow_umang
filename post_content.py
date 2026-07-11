@@ -283,10 +283,10 @@ def run():
         time.sleep(random.randint(8, 15))
 
         # Dynamic dismissal for optional integrated WhatsApp hooks
-        btn = page.get_by_role("button", name="Not now")
+        btn = page.get_by_role("button", name="Not now").or_(page.get_by_role("button", name="Publish Original Post"))
         if btn.count(): 
             btn.first.click()
-            print("[STEP] Dismissed WhatsApp link layout prompt...", flush=True)
+            print("[STEP] Dismissed Post Post layout prompt...", flush=True)
             time.sleep(random.randint(4, 8))
 
         print("✅ Posted successfully to Facebook Feed!", flush=True)
