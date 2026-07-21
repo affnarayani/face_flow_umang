@@ -48,7 +48,10 @@
         "posted": true
     },
     {
-        "topic": "Choosing between the district and state consumer commissions"
+        "topic": "Choosing between the district and state consumer commissions",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Real estate consumer complaints outside the housing regulator's reach"
