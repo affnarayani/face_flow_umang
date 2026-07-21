@@ -42,7 +42,10 @@
         "posted": true
     },
     {
-        "topic": "Acid attack cases - sentencing trends in Indian courts"
+        "topic": "Acid attack cases - sentencing trends in Indian courts",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Choosing between the district and state consumer commissions"
