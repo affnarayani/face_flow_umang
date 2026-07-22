@@ -54,7 +54,10 @@
         "posted": true
     },
     {
-        "topic": "Real estate consumer complaints outside the housing regulator's reach"
+        "topic": "Real estate consumer complaints outside the housing regulator's reach",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Legal remedies for residents against illegal construction near water bodies"
