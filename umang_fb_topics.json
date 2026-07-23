@@ -66,7 +66,10 @@
         "posted": true
     },
     {
-        "topic": "The new Data Protection Board - how complaints will be processed"
+        "topic": "The new Data Protection Board - how complaints will be processed",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "The sanction requirement before prosecuting a public servant for corruption"
