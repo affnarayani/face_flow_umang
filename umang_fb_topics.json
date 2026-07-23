@@ -60,7 +60,10 @@
         "posted": true
     },
     {
-        "topic": "Legal remedies for residents against illegal construction near water bodies"
+        "topic": "Legal remedies for residents against illegal construction near water bodies",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "The new Data Protection Board - how complaints will be processed"
