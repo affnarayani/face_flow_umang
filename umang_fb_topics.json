@@ -102,7 +102,10 @@
         "posted": true
     },
     {
-        "topic": "Chain of custody of seized contraband - a common defence ground"
+        "topic": "Chain of custody of seized contraband - a common defence ground",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Live-streaming of court proceedings - the pros and cons for litigants"
