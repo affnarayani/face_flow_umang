@@ -150,7 +150,10 @@
         "posted": true
     },
     {
-        "topic": "Who's accountable when an AI chatbot gives wrong legal advice"
+        "topic": "Who's accountable when an AI chatbot gives wrong legal advice",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Choosing between the housing regulator and the consumer forum"
