@@ -162,7 +162,10 @@
         "posted": true
     },
     {
-        "topic": "Enforcing a corporate guarantee - the legal process explained"
+        "topic": "Enforcing a corporate guarantee - the legal process explained",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Cyber cell complaint vs court complaint - which route is faster"
