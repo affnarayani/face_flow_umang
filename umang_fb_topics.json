@@ -180,7 +180,10 @@
         "posted": true
     },
     {
-        "topic": "Founder vs investor equity disputes in startups"
+        "topic": "Founder vs investor equity disputes in startups",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "How Indian courts actually apply the polluter pays principle"
