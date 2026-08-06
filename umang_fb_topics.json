@@ -192,7 +192,10 @@
         "posted": true
     },
     {
-        "topic": "Significant data fiduciary classification - who actually gets covered"
+        "topic": "Significant data fiduciary classification - who actually gets covered",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Online matrimonial fraud - a rising category of cybercrime"
