@@ -1,14 +1,14 @@
 {
-    "title": "Significant data fiduciary classification - who actually gets covered",
-    "p1": "Not every company handling personal data gets the same level of responsibility.\n\nBut did you know some organisations can be classified as \"Significant Data Fiduciaries\" and face much stricter obligations?",
-    "p2": "A common misconception is that only huge technology companies fall into this category. The reality is different. Classification depends on factors like the volume and sensitivity of data handled, risks to individuals, impact on public interest, and the scale of processing activities.",
-    "p3": "A Significant Data Fiduciary is essentially an organisation that handles personal data in a way that creates greater responsibility for protecting people's information. Such entities may need stronger security measures, audits, data protection officers, and additional compliance steps.\n\nThe key takeaway: collecting more data does not automatically make an organisation significant. The nature, risk, and impact of that data processing matter.\n\nBusinesses should assess their data practices before assuming these rules do not apply to them.",
-    "conclusion": "Do you think companies should be more transparent about whether they qualify as Significant Data Fiduciaries?",
+    "title": "Online matrimonial fraud - a rising category of cybercrime",
+    "p1": "The person who seems like your perfect match online may not even exist.\n\nMany people think matrimonial fraud is only about fake profiles, but the real danger often begins after trust is built.",
+    "p2": "A surprising fact: fraudsters rarely start by asking for money. They first create an emotional connection, learn personal details, and make victims feel they are in a genuine relationship. Once trust is established, they may create emergencies involving medical issues, travel problems, investments, or family situations to extract money or sensitive information.",
+    "p3": "Online matrimonial fraud is a form of cybercrime where technology is used to manipulate emotions and exploit trust. A simple safety check can prevent major losses: verify the person's identity, be cautious about sharing private information, and never send money to someone you have only met online.\n\nA genuine relationship should never require secrecy, pressure, or financial help as proof of commitment.",
+    "conclusion": "Have you or someone you know encountered a suspicious matrimonial profile online? What warning sign made you question it?",
     "keywords": [
-        "DataProtection",
-        "PrivacyLaw",
-        "DigitalPersonalData",
-        "CyberCompliance",
-        "DataGovernance"
+        "CyberCrime",
+        "OnlineFraud",
+        "MatrimonialFraud",
+        "DigitalSafety",
+        "CyberAwareness"
     ]
 }

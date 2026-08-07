@@ -198,7 +198,10 @@
         "posted": true
     },
     {
-        "topic": "Online matrimonial fraud - a rising category of cybercrime"
+        "topic": "Online matrimonial fraud - a rising category of cybercrime",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Cultivation of cannabis vs possession - separate offences explained"
