@@ -234,7 +234,10 @@
         "posted": true
     },
     {
-        "topic": "How banks bypass courts entirely to recover bad loans"
+        "topic": "How banks bypass courts entirely to recover bad loans",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Criminal trespass vs house trespass - the practical difference"
