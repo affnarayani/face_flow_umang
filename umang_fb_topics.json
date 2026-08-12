@@ -258,7 +258,10 @@
         "posted": true
     },
     {
-        "topic": "Hacking of social media accounts - what the FIR should actually state"
+        "topic": "Hacking of social media accounts - what the FIR should actually state",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Builder project registration - what buyers should verify before booking"

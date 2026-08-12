@@ -1,14 +1,14 @@
 {
-    "title": "NDPS special courts - how trial timelines actually work",
-    "p1": "A drug case can take years to reach a final judgment. But is the delay always because the court is slow?\n\nMany people assume that once an NDPS case reaches a Special Court, the trial should finish quickly. The reality is much more complex.",
-    "p2": "NDPS Special Courts are created to handle offences under the Narcotic Drugs and Psychotropic Substances Act, but they still follow a legal process. Evidence collection, forensic reports, witness examination, cross-examination, and repeated hearings can significantly affect timelines.\n\nOne surprising point: the law provides special procedures, but it does not mean every case gets an instant trial.",
-    "p3": "The timeline depends on factors like the number of witnesses, complexity of evidence, availability of records, and whether procedural issues arise. A strong prosecution case and a fair opportunity for the accused both require proper examination of facts.\n\nThe practical takeaway: a long NDPS trial does not automatically mean negligence, and a quick trial does not always mean justice was done.",
-    "conclusion": "Do you think NDPS cases should have stricter deadlines for completing trials, or should courts prioritize a detailed examination of evidence?",
+    "title": "Hacking of social media accounts - what the FIR should actually state",
+    "p1": "Your social media account was hacked. You go to the police station and say, “My account was hacked.” But that may not tell the full story. The details in the FIR can matter far more than people realise.",
+    "p2": "A common misconception is that an FIR only needs to mention that someone gained unauthorised access. In reality, the complaint should clearly describe what happened: which account was affected, when access was lost, what changed, how the victim discovered it, and what the suspected person did afterwards.",
+    "p3": "For example, if the hacker changed the password, replaced the recovery email or phone number, sent messages from the account, deleted content, demanded money, or used the account to impersonate the victim, those facts should be specifically recorded. Screenshots, login alerts, emails, profile changes and relevant URLs can help establish the sequence of events. The key takeaway: an FIR should record the actual acts committed, not just the label “hacking.” That factual detail can make the complaint much clearer for investigation.",
+    "conclusion": "If your social media account were hacked today, what detail would you make sure the FIR specifically recorded?",
     "keywords": [
-        "NDPSAct",
-        "CriminalLaw",
-        "LegalAwareness",
-        "DrugLaws",
-        "IndianJudiciary"
+        "CyberCrime",
+        "SocialMediaHacking",
+        "FIR",
+        "CyberLaw",
+        "DigitalSafety"
     ]
 }
