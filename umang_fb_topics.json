@@ -264,7 +264,10 @@
         "posted": true
     },
     {
-        "topic": "Builder project registration - what buyers should verify before booking"
+        "topic": "Builder project registration - what buyers should verify before booking",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Passing off vs trademark infringement - the difference that matters"
