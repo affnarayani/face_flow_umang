@@ -312,7 +312,10 @@
         "posted": true
     },
     {
-        "topic": "UPI fraud - what legal recourse actually works for victims"
+        "topic": "UPI fraud - what legal recourse actually works for victims",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Unfair trade practices - what actually qualifies under the law"
