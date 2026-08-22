@@ -348,7 +348,10 @@
         "posted": true
     },
     {
-        "topic": "Suspension of a government employee - rights during the suspension period"
+        "topic": "Suspension of a government employee - rights during the suspension period",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Institutional vs ad-hoc arbitration - what clients should actually choose"
