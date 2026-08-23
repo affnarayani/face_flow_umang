@@ -354,7 +354,10 @@
         "posted": true
     },
     {
-        "topic": "Institutional vs ad-hoc arbitration - what clients should actually choose"
+        "topic": "Institutional vs ad-hoc arbitration - what clients should actually choose",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Forensic lab report delays - impact on NDPS trials"
