@@ -402,7 +402,10 @@
         "posted": true
     },
     {
-        "topic": "Insurance company defences - the common grounds they raise"
+        "topic": "Insurance company defences - the common grounds they raise",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Enforcing maintenance - what happens when a husband simply refuses to pay"
