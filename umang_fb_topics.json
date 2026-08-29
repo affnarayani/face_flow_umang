@@ -426,7 +426,10 @@
         "posted": true
     },
     {
-        "topic": "Pension forfeiture - when can it actually be withheld"
+        "topic": "Pension forfeiture - when can it actually be withheld",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Coverage for live-in relationships - and its real limitations"
