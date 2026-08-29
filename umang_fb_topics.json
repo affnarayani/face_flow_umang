@@ -420,7 +420,10 @@
         "posted": true
     },
     {
-        "topic": "Right to erasure - how individuals can actually exercise it"
+        "topic": "Right to erasure - how individuals can actually exercise it",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Pension forfeiture - when can it actually be withheld"
