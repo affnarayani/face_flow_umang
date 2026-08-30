@@ -438,7 +438,10 @@
         "posted": true
     },
     {
-        "topic": "Transfer pricing basics for cross-border transaction disputes"
+        "topic": "Transfer pricing basics for cross-border transaction disputes",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Right to privacy as a fundamental right - the practical implications"
