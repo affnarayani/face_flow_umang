@@ -444,7 +444,10 @@
         "posted": true
     },
     {
-        "topic": "Right to privacy as a fundamental right - the practical implications"
+        "topic": "Right to privacy as a fundamental right - the practical implications",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "WhatsApp chats as court evidence - what courts actually require"
