@@ -492,7 +492,10 @@
         "posted": true
     },
     {
-        "topic": "Trade union recognition disputes - the legal process explained"
+        "topic": "Trade union recognition disputes - the legal process explained",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Why a predicate offence is the foundation of every money laundering case"
