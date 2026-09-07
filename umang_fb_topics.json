@@ -528,7 +528,10 @@
         "posted": true
     },
     {
-        "topic": "Dying declaration - why it alone can sometimes secure a conviction"
+        "topic": "Dying declaration - why it alone can sometimes secure a conviction",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Evicting children from a parent's own property - an underused remedy"
