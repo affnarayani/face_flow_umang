@@ -558,7 +558,10 @@
         "posted": true
     },
     {
-        "topic": "The corporate fraud investigation agency's role explained"
+        "topic": "The corporate fraud investigation agency's role explained",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Age determination disputes - medical evidence vs documents"
