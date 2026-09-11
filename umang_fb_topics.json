@@ -564,7 +564,10 @@
         "posted": true
     },
     {
-        "topic": "Age determination disputes - medical evidence vs documents"
+        "topic": "Age determination disputes - medical evidence vs documents",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Defects liability period - enforcing builder obligations after possession"
