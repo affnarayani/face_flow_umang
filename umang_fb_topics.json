@@ -588,7 +588,10 @@
         "posted": true
     },
     {
-        "topic": "Screenshot evidence - why courts reject most of it"
+        "topic": "Screenshot evidence - why courts reject most of it",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Digital arrest scams - the new fraud everyone should know about"
