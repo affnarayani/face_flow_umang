@@ -1,14 +1,14 @@
 {
-    "title": "Are fraud disputes even arbitrable - the current legal position",
-    "p1": "Can a fraud allegation take a dispute straight out of arbitration?\n\nMany people assume that the moment someone says “fraud”, courts must decide the matter. But the legal position is more nuanced than that.",
-    "p2": "The surprising part: fraud disputes are not automatically non-arbitrable. Indian courts have moved away from the older view that every fraud claim belongs only before a court.\n\nThe real question is whether the alleged fraud affects the arbitration agreement itself or requires complex public investigation beyond a private dispute.",
-    "p3": "If the fraud claim is mainly between parties and can be decided by examining evidence, arbitration may still be possible. But cases involving serious allegations that impact public interest or challenge the very foundation of the agreement may require court intervention.\n\nThe practical takeaway: simply using the word “fraud” does not end the arbitration clause. The nature and impact of the allegation matter.",
-    "conclusion": "Do you think fraud allegations should always be decided by courts, or should parties still be allowed to choose arbitration in suitable cases?",
+    "title": "Mob lynching - is there a separate law or only general provisions",
+    "p1": "Can a mob crime be punished under a special law, or is it treated like any other offence? The answer surprises many people because the law has changed recently.",
+    "p2": "A common misconception is that mob lynching always had a separate standalone law across India. Earlier, such cases were generally handled using existing provisions like murder, rioting, unlawful assembly, and common intention. A major change came with the Bharatiya Nyaya Sanhita (BNS), which introduced a specific provision for murder committed by a group of five or more persons acting together on certain grounds.",
+    "p3": "This means mob violence is not viewed only as an ordinary fight between individuals. The law now recognizes the collective nature of such crimes and provides a specific punishment for certain lynching cases. However, other offences connected with the incident may also apply depending on the facts. The key takeaway: the legal treatment depends on what happened, who was involved, and which provisions fit the case.",
+    "conclusion": "Did you know that mob lynching cases were earlier mostly handled through general criminal provisions? Do you think a separate law makes enforcement clearer?",
     "keywords": [
-        "ArbitrationLaw",
+        "MobLynching",
         "IndianLaw",
-        "CommercialDisputes",
-        "LegalAwareness",
-        "CorporateLaw"
+        "BharatiyaNyayaSanhita",
+        "CriminalLaw",
+        "LegalAwareness"
     ]
 }
