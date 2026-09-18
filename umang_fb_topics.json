@@ -648,7 +648,10 @@
         "posted": true
     },
     {
-        "topic": "Statement of the accused - why it should never be taken lightly"
+        "topic": "Statement of the accused - why it should never be taken lightly",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Common mistakes that turn a routine GST notice into a full dispute"
