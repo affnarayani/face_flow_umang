@@ -684,7 +684,10 @@
         "posted": true
     },
     {
-        "topic": "Litigation trends around GST input tax credit disputes"
+        "topic": "Litigation trends around GST input tax credit disputes",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Guardianship law vs personal law - which one prevails"
