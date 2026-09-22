@@ -690,7 +690,10 @@
         "posted": true
     },
     {
-        "topic": "Guardianship law vs personal law - which one prevails"
+        "topic": "Guardianship law vs personal law - which one prevails",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Reservation in promotion - the current legal position after recent rulings"
