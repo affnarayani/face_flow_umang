@@ -708,7 +708,10 @@
         "posted": true
     },
     {
-        "topic": "Domain name disputes - how cybersquatting cases actually get resolved"
+        "topic": "Domain name disputes - how cybersquatting cases actually get resolved",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "SIM swap fraud - liability of banks and telecom companies"
