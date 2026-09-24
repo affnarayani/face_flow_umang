@@ -1,14 +1,14 @@
 {
-    "title": "Domain name disputes - how cybersquatting cases actually get resolved",
-    "p1": "Someone registers a domain name that looks exactly like your brand. Can they really keep it forever?\n\nMany people assume the first person to buy a domain owns the right to use it. That is not always true.",
-    "p2": "A surprising fact: trademark owners can sometimes recover a domain even if someone else registered it first. This often happens in cybersquatting cases, where a person registers a domain mainly to profit from another brand’s reputation.",
-    "p3": "The resolution usually happens through a process called UDRP (Uniform Domain-Name Dispute-Resolution Policy). A complaint is reviewed by an independent panel, which looks at factors like trademark rights, bad-faith registration, and whether the domain owner has a legitimate reason to use the name.\n\nIf the complaint succeeds, the domain can be transferred to the rightful party. The key lesson for businesses: protecting your brand online is not only about owning a domain, but also monitoring how your name is being used.",
-    "conclusion": "Have you ever seen a domain name that looked like it was copying a real brand? What action do you think should be taken?",
+    "title": "SIM swap fraud - liability of banks and telecom companies",
+    "p1": "Your phone number can be stolen without your phone being stolen.\n\nAnd that simple trick can give criminals access to your bank accounts, OTPs, and digital identity.",
+    "p2": "Many people think SIM swap fraud is only the victim's mistake. The surprising part? Liability can depend on whether banks or telecom companies failed to follow proper security checks.\n\nA SIM swap happens when a fraudster convinces a telecom provider to issue a new SIM card linked to your number. Your original SIM stops working, and your calls and messages may be redirected to the attacker.",
+    "p3": "Banks are expected to protect customer accounts through reasonable security measures, while telecom companies must verify SIM replacement requests carefully. If a company ignores warning signs or fails basic checks, it may face responsibility depending on the facts and applicable rules.\n\nThe practical lesson: treat sudden loss of mobile service as a security emergency, not just a network problem.",
+    "conclusion": "Do you think banks and telecom companies should share greater responsibility when a SIM swap fraud causes financial loss?",
     "keywords": [
-        "DomainDisputes",
-        "Cybersquatting",
-        "TrademarkLaw",
-        "OnlineBrandProtection",
-        "DigitalRights"
+        "SIMSwapFraud",
+        "CyberSecurity",
+        "BankFraud",
+        "DigitalSafety",
+        "ConsumerRights"
     ]
 }

@@ -714,7 +714,10 @@
         "posted": true
     },
     {
-        "topic": "SIM swap fraud - liability of banks and telecom companies"
+        "topic": "SIM swap fraud - liability of banks and telecom companies",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Who's liable when an AI chatbot gives wrong legal advice"
