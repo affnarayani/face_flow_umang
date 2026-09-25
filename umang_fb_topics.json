@@ -722,7 +722,7 @@
     {
         "topic": "Who's liable when an AI chatbot gives wrong legal advice",
         "content_generated": true,
-        "image_generated": false,
+        "image_generated": true,
         "posted": false
     },
     {
