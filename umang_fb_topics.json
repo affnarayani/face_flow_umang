@@ -720,7 +720,10 @@
         "posted": true
     },
     {
-        "topic": "Who's liable when an AI chatbot gives wrong legal advice"
+        "topic": "Who's liable when an AI chatbot gives wrong legal advice",
+        "content_generated": true,
+        "image_generated": false,
+        "posted": false
     },
     {
         "topic": "Denial of maternity benefits - the legal remedies for women employees"

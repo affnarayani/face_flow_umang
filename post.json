@@ -1,14 +1,14 @@
 {
-    "title": "SIM swap fraud - liability of banks and telecom companies",
-    "p1": "Your phone number can be stolen without your phone being stolen.\n\nAnd that simple trick can give criminals access to your bank accounts, OTPs, and digital identity.",
-    "p2": "Many people think SIM swap fraud is only the victim's mistake. The surprising part? Liability can depend on whether banks or telecom companies failed to follow proper security checks.\n\nA SIM swap happens when a fraudster convinces a telecom provider to issue a new SIM card linked to your number. Your original SIM stops working, and your calls and messages may be redirected to the attacker.",
-    "p3": "Banks are expected to protect customer accounts through reasonable security measures, while telecom companies must verify SIM replacement requests carefully. If a company ignores warning signs or fails basic checks, it may face responsibility depending on the facts and applicable rules.\n\nThe practical lesson: treat sudden loss of mobile service as a security emergency, not just a network problem.",
-    "conclusion": "Do you think banks and telecom companies should share greater responsibility when a SIM swap fraud causes financial loss?",
+    "title": "Who's liable when an AI chatbot gives wrong legal advice",
+    "p1": "A chatbot gives you legal advice. You trust it. You act on it. Then you suffer a loss. Who pays the price?\n\nMany people assume the AI company is automatically responsible. The reality is far more complicated.",
+    "p2": "A surprising fact: most AI chatbots are not licensed lawyers and their answers are usually treated as information, not professional legal advice. If an AI gives an incorrect answer, liability may depend on factors like how the tool was marketed, the warnings provided, and whether a person relied on it as a substitute for a lawyer.",
+    "p3": "The key lesson is simple: AI can help you understand legal issues, draft documents, or find information, but it does not replace professional judgment. Always verify important legal decisions with a qualified expert, especially when money, rights, or legal deadlines are involved.\n\nThe question is not only 'Was the AI wrong?' but also 'How was the AI used?'",
+    "conclusion": "If an AI chatbot gives incorrect legal advice that causes harm, who do you think should be responsible: the AI company, the user, or should the risk be shared?",
     "keywords": [
-        "SIMSwapFraud",
-        "CyberSecurity",
-        "BankFraud",
-        "DigitalSafety",
-        "ConsumerRights"
+        "AIandLaw",
+        "LegalTech",
+        "ArtificialIntelligence",
+        "ConsumerRights",
+        "DigitalLaw"
     ]
 }
