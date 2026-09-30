@@ -1,14 +1,14 @@
 {
-    "title": "Tax evasion vs tax avoidance - the legal line explained",
-    "p1": "Not every strategy that reduces your tax bill is illegal. But where does smart tax planning end and a legal problem begin?\n\nThe difference between tax avoidance and tax evasion often surprises people because both can result in paying less tax.",
-    "p2": "Many assume that paying less tax automatically means breaking the law. That is not true.\n\nTax avoidance generally involves using legal methods, such as choosing available deductions, exemptions, or structures allowed by tax rules. Tax evasion is different — it involves hiding income, creating false records, or deliberately misleading tax authorities.\n\nThe surprising part? A transaction can look perfectly legal on paper but still face scrutiny if it is only designed to unfairly avoid tax without a genuine purpose.",
-    "p3": "The practical lesson is simple: tax planning is about using the rules, while tax evasion is about breaking them.\n\nBefore adopting any tax strategy, ask one question: Is this based on a legitimate business or financial decision, or only an attempt to conceal the real tax liability?",
-    "conclusion": "Where do you think the legal line between smart tax planning and improper tax avoidance should be drawn?",
+    "title": "When does a director's personal liability actually pierce the corporate veil",
+    "p1": "Many people believe a company structure always protects directors from personal risk. But there are situations where that protection can disappear, and a director may find their own assets exposed.",
+    "p2": "A common misconception is that every business mistake can lead to personal liability. Usually, directors are protected because the company is a separate legal entity. The surprise is that courts may look beyond the company if it is being misused, such as when there is fraud, deliberate wrongdoing, or the company is treated like a personal wallet instead of a separate business.",
+    "p3": "Piercing the corporate veil is not about punishing normal business decisions. It is about holding individuals accountable when the company structure is used as a shield for improper conduct. Keeping proper records, separating personal and company finances, and following legal duties can help preserve that protection.",
+    "conclusion": "Have you ever seen a case where a director was personally responsible despite having a company behind them?",
     "keywords": [
-        "TaxLaw",
-        "TaxPlanning",
+        "CorporateLaw",
+        "DirectorLiability",
+        "BusinessCompliance",
         "LegalAwareness",
-        "FinanceTips",
-        "BusinessLaw"
+        "StartupLaw"
     ]
 }
