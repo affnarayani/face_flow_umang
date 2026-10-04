@@ -1,14 +1,14 @@
 {
-    "title": "Lump sum vs monthly alimony - which works better for clients",
-    "p1": "One choice can change the entire financial future after a divorce: take alimony as one large payment or receive smaller payments over time. But the bigger option is not always the better option.",
-    "p2": "Many people assume a lump sum is automatically safer because the money arrives upfront. The surprising part? A monthly arrangement can sometimes provide more stability, while a lump sum can create challenges if unexpected expenses, taxes, or poor financial planning come into play.",
-    "p3": "A lump sum offers certainty and control because the recipient knows the amount is settled. Monthly alimony can provide a steady income stream that may better match ongoing living costs. The right choice depends on factors like financial discipline, future needs, risk tolerance, and each person's circumstances. The best decision is not about choosing the bigger number, but choosing the structure that supports long-term security.",
-    "conclusion": "If you had the choice, would you prefer one large alimony payment today or a reliable monthly payment over time? What factor would influence your decision most?",
+    "title": "Algorithmic bias in lending - the consumer protection angle",
+    "p1": "A computer can approve or reject your loan in seconds. But what happens when the system learns the wrong lessons?\n\nMany people assume algorithms are always neutral because they rely on data, not human opinions.",
+    "p2": "The surprising truth: algorithms can repeat and even amplify existing unfair patterns. If past lending data reflects unequal access to credit, an AI system may unknowingly use those patterns when making future decisions.\n\nThe problem is not that machines are biased by nature. It is that they learn from the information they receive.",
+    "p3": "Consumer protection comes into play when people are denied fair opportunities without knowing why. Lenders using automated systems need transparency, regular testing, and safeguards to ensure decisions are accurate and fair.\n\nA faster loan decision should not mean a less accountable one. Consumers deserve to know that technology is helping them, not silently creating new barriers.",
+    "conclusion": "Should consumers have the right to know when an AI system influences a lending decision against them?",
     "keywords": [
-        "Alimony",
-        "DivorceLaw",
-        "FamilyLaw",
-        "FinancialPlanning",
-        "LegalAdvice"
+        "AlgorithmicBias",
+        "ConsumerProtection",
+        "AIinFinance",
+        "FairLending",
+        "DigitalRights"
     ]
 }
