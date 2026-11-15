@@ -1,5 +1,4 @@
 import random
-import re
 
 def generate_random_time():
     minute = random.randint(0, 59)

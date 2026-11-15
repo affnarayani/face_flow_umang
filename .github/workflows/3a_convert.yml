@@ -1,0 +1,68 @@
+name: 3A. Convert Videos
+
+on:
+  workflow_dispatch: # Manual run only (No cron/schedule)
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  run-converter:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      # =========================
+      # 1. PULL CODE
+      # =========================
+      - name: Checkout repo
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # =========================
+      # 2. SETUP PYTHON
+      # =========================
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      # =========================
+      # 3. INSTALL DEPENDENCIES
+      # =========================
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # =========================
+      # 4. RUN CONVERSION SCRIPT
+      # =========================
+      - name: Run WebM to MP4 Converter
+        run: python convert_to_mp4.py
+
+      # =========================
+      # 5. COMMIT & PUSH CHANGES (Persistence)
+      # =========================
+      - name: Commit & Push updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # temp folder ke andar huye saare additions (.mp4) aur deletions (.webm) ko stage karein
+          git add temp/
+          
+          # Check karein agar koi changes detect huye hain
+          if ! git diff --cached --quiet; then
+            git commit -m "Automation: WebM files converted to MP4 and source files deleted [auto]"
+            
+            # Latest changes pull karein (Conflict avoid karne ke liye)
+            git pull --rebase origin main
+            
+            # Push changes
+            git push origin main
+          else
+            echo "No changes detected. Skipping push."
+          fi

@@ -1,0 +1,28 @@
+# ============================================================
+# ChatGPT Platform Locators (chatgpt.com)
+# Format: locator_name = page.<playwright_expression>
+# Duplicate names: first entry is primary, subsequent same-named entries are fallbacks.
+# All expressions are checked immediately; first match wins (no waiting on timeouts).
+# Image generation flow: prompt textbox -> send button -> share button -> download button
+# ============================================================
+
+# --- Chat composer / input ---
+chatgpt_textbox = page.get_by_role('textbox', name='Chat with ChatGPT').or_(page.get_by_role('textbox', name='Ask ChatGPT'))
+chatgpt_textbox = page.locator('div[contenteditable="true"]').filter(has=page.locator('p', has_text='Ask anything')).first
+chatgpt_textbox = page.locator('#prompt-textarea')
+
+chatgpt_send_button = page.get_by_test_id('send-button').or_(page.get_by_role('button', name='Send'))
+
+# --- Authentication & profile ---
+chatgpt_profile_button = page.get_by_role('button', name='Open profile menu')
+
+# --- Code block / generated content ---
+chatgpt_code_block = page.locator('#code-block-viewer pre').or_(page.get_by_role('textbox', name='Edit code')).or_(page.get_by_role('code'))
+
+# --- Image generation flow ---
+chatgpt_share_image_button = page.get_by_role('button', name='Share this image')
+chatgpt_share_image_button = page.get_by_role("button", name="Share generated image")
+
+chatgpt_download_button = page.get_by_role('button', name='Download')
+chatgpt_download_button = page.get_by_role('button', name='Download file')
+chatgpt_download_button = page.locator('button:has(svg.lucide-download)')

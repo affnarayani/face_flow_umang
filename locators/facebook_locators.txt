@@ -1,0 +1,33 @@
+# ============================================================
+# Facebook Platform Locators (facebook.com)
+# Format: locator_name = page.<playwright_expression>
+# Duplicate names: first entry is primary, subsequent same-named entries are fallbacks.
+# All expressions are checked immediately; first match wins (no waiting on timeouts).
+# Update these directly when selectors change.
+# ============================================================
+
+facebook_switch_now_button = page.get_by_role("button", name="Switch Now")
+
+facebook_create_post_button = page.get_by_role("button", name="What's on your mind?")
+
+facebook_ai_label_off_button = page.get_by_role("button", name="AI label off")
+
+facebook_add_ai_label_switch = page.get_by_role("switch", name="Add AI label")
+
+facebook_got_it_button = page.get_by_role("button", name="Got it")
+
+facebook_post_paragraph = page.get_by_role("paragraph")
+
+facebook_photo_video_button = page.get_by_role("button", name="Photo/video", exact=True)
+
+facebook_next_button = page.get_by_role("button", name="Next")
+
+facebook_post_button = page.get_by_role("button", name="Post", exact=True)
+
+facebook_not_now_button = page.get_by_role("button", name="Not now").or_(page.get_by_role("button", name="Publish Original Post"))
+
+facebook_email_input = page.get_by_role("textbox", name="Email address or mobile number")
+
+facebook_password_input = page.get_by_role("textbox", name="Password")
+
+facebook_login_button = page.get_by_role("button", name="Log in")

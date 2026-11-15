@@ -35,7 +35,7 @@ jobs:
               STATUS=$(echo $run | jq -r '.status')
               
               # Skip the current run
-              if [ "$RUN_ID" == "$CURRENT_RUN_ID" ]; then
+              if [ "$RUN_ID" == "$CURRENT_RUN_ID" ] || [ "$STATUS" == "queued" ]; then
                 echo "Skipping current run: $RUN_NAME (ID: $RUN_ID, Status: $STATUS, Conclusion: $CONCLUSION)"
                 continue
               fi
