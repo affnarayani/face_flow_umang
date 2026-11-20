@@ -253,9 +253,13 @@ def run():
         fc.value.set_files(str(IMAGE_PATH))
         time.sleep(random.randint(6, 12))
 
-        resolve_locator(page, PLATFORM, "facebook_next_button", "Next button").click()
-        print("[STEP] Clicking Next...", flush=True)
-        time.sleep(random.randint(6, 12))
+        next_btn = resolve_locator(
+            page, PLATFORM, "facebook_next_button", "Next button", optional=True
+        )
+        if next_btn is not None:
+            next_btn.click()
+            print("[STEP] Clicking Next...", flush=True)
+            time.sleep(random.randint(6, 12))
 
         resolve_locator(page, PLATFORM, "facebook_post_button", "Post button").click()
         print("[STEP] Clicking Post...", flush=True)
