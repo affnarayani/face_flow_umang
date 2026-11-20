@@ -20,6 +20,7 @@ facebook_got_it_button = page.get_by_role("button", name="Got it")
 facebook_post_paragraph = page.get_by_role("paragraph")
 
 facebook_photo_video_button = page.get_by_role("button", name="Photo/video", exact=True)
+facebook_photo_video_button = page.get_by_role('button', name='Add photos or videos or drag')
 
 facebook_next_button = page.get_by_role("button", name="Next")
 

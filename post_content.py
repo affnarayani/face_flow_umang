@@ -232,8 +232,14 @@ def run():
         time.sleep(random.randint(3, 6))
 
         print("[STEP] Confirming with 'Got it' button...", flush=True)
-        resolve_locator(page, PLATFORM, "facebook_got_it_button", "Got it button").click()
-        time.sleep(random.randint(3, 6))
+        got_it_btn = resolve_locator(
+            page, PLATFORM, "facebook_got_it_button", "Got it button", optional=True
+        )
+        if got_it_btn is not None:
+            got_it_btn.click()
+            time.sleep(random.randint(3, 6))
+        else:
+            print("[INFO] 'Got it' button not found. Skipping...", flush=True)
 
         print("[STEP] Locating textarea and typing post...", flush=True)
         resolve_locator(page, PLATFORM, "facebook_post_paragraph", "Post textarea").click()
@@ -255,8 +261,10 @@ def run():
         print("[STEP] Clicking Post...", flush=True)
         time.sleep(random.randint(8, 15))
 
-        btn = resolve_locator(page, PLATFORM, "facebook_not_now_button", "Dismiss Post Post layout prompt")
-        if btn.count():
+        btn = resolve_locator(
+            page, PLATFORM, "facebook_not_now_button", "Dismiss Post Post layout prompt", optional=True
+        )
+        if btn is not None and btn.count():
             btn.first.click()
             print("[STEP] Dismissed Post Post layout prompt...", flush=True)
             time.sleep(random.randint(4, 8))
