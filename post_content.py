@@ -218,8 +218,14 @@ def run():
         time.sleep(random.randint(6, 12))
 
         print("[STEP] Locating 'AI label off' button...", flush=True)
-        resolve_locator(page, PLATFORM, "facebook_ai_label_off_button", "AI label off button").click()
-        time.sleep(random.randint(3, 6))
+        ai_label_off_btn = resolve_locator(
+            page, PLATFORM, "facebook_ai_label_off_button", "AI label off button", optional=True
+        )
+        if ai_label_off_btn is not None:
+            ai_label_off_btn.click()
+            time.sleep(random.randint(3, 6))
+        else:
+            print("[INFO] 'AI label off' button not found. Skipping...", flush=True)
 
         print("[STEP] Toggling 'Add AI label' switch...", flush=True)
         resolve_locator(page, PLATFORM, "facebook_add_ai_label_switch", "Add AI label switch").click()

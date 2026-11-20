@@ -13,6 +13,7 @@ facebook_create_post_button = page.get_by_role("button", name="What's on your mi
 facebook_ai_label_off_button = page.get_by_role("button", name="AI label off")
 
 facebook_add_ai_label_switch = page.get_by_role("switch", name="Add AI label")
+facebook_add_ai_label_switch = page.get_by_role('switch', name='Add AI label').locator('input[type="checkbox"]')
 
 facebook_got_it_button = page.get_by_role("button", name="Got it")
 
