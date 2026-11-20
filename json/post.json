@@ -1,14 +1,14 @@
 {
-    "title": "Algorithmic bias in lending - the consumer protection angle",
-    "p1": "A computer can approve or reject your loan in seconds. But what happens when the system learns the wrong lessons?\n\nMany people assume algorithms are always neutral because they rely on data, not human opinions.",
-    "p2": "The surprising truth: algorithms can repeat and even amplify existing unfair patterns. If past lending data reflects unequal access to credit, an AI system may unknowingly use those patterns when making future decisions.\n\nThe problem is not that machines are biased by nature. It is that they learn from the information they receive.",
-    "p3": "Consumer protection comes into play when people are denied fair opportunities without knowing why. Lenders using automated systems need transparency, regular testing, and safeguards to ensure decisions are accurate and fair.\n\nA faster loan decision should not mean a less accountable one. Consumers deserve to know that technology is helping them, not silently creating new barriers.",
-    "conclusion": "Should consumers have the right to know when an AI system influences a lending decision against them?",
+    "title": "Criminal breach of trust vs cheating - key differences lawyers must know",
+    "p1": "Two people receive money. One misuses it. The other obtains it through a lie. Both may cause financial loss, but legally, they could face very different criminal charges.\n\nThe difference? It lies in WHEN the dishonest intention existed.",
+    "p2": "A common misconception is that every financial betrayal amounts to cheating. That is not correct.\n\nIn criminal breach of trust, someone is entrusted with property or control over it and later dishonestly misuses it.\n\nIn cheating, deception comes first. A person dishonestly induces another to hand over property or do something they otherwise would not have done.",
+    "p3": "Consider this example:\n\nA business partner receives funds for a specific project but deliberately diverts them for personal use. This may amount to criminal breach of trust.\n\nBut if someone obtains those funds by making a false promise from the beginning, cheating may be involved.\n\nHere is the key legal insight: subsequent failure to fulfil a promise does not automatically establish cheating. The dishonest intention must generally exist when the inducement occurs.\n\nFor lawyers, examining the original intention, nature of entrustment and sequence of events can make all the difference.",
+    "conclusion": "In a financial dispute, what should carry greater weight: proof of initial dishonest intention or evidence of subsequent misuse of entrusted property? Share your legal perspective in the comments.",
     "keywords": [
-        "AlgorithmicBias",
-        "ConsumerProtection",
-        "AIinFinance",
-        "FairLending",
-        "DigitalRights"
+        "CriminalLaw",
+        "IndianLaw",
+        "CriminalBreachOfTrust",
+        "Cheating",
+        "LegalAwareness"
     ]
 }
